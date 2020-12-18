@@ -13,9 +13,16 @@ const MovieListItem = ({
   deleteAction,
   onClick,
 }) => {
+  /** Handle click on card */
   const handleClick = () => {
-    onClick({ Poster, Title, Type, Year, className, onClick });
+    onClick({ imdbID, Poster, Title, Type, Year, className, onClick });
   };
+  /** handle only click on delete icon */
+  const handleDeleteAction = (e) => {
+    e.stopPropagation();
+    deleteAction(imdbID);
+  };
+
   return (
     <div onClick={handleClick} className={`${styles.movie_item} ${className}`}>
       <div className={styles.img_wrapper}>
@@ -30,7 +37,7 @@ const MovieListItem = ({
         </div>
         <Actions
           visibility={!!deleteAction}
-          deleteHandler={() => deleteAction(imdbID)}
+          deleteHandler={handleDeleteAction}
         />
       </div>
     </div>

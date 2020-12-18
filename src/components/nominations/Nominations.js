@@ -3,9 +3,11 @@ import { SearchContext } from "../../context/search-context";
 import MovieListItem from "./../MovieListItem";
 
 import styles from "./../../styles/nominations.module.scss";
+import { deleteNomination } from "../../context/actions";
 
 const Nominations = () => {
-  const [state] = useContext(SearchContext);
+  const [state, dispatch] = useContext(SearchContext);
+
   return (
     <div className={styles.nominations}>
       <div className={styles.sub_wrapper}>
@@ -16,7 +18,7 @@ const Nominations = () => {
               {...movie}
               key={movie.imdbID}
               className={styles.movie_item}
-              deleteAction={(id) => {}}
+              deleteAction={(id) => dispatch(deleteNomination(movie.imdbID))}
             />
           ))}
         </div>

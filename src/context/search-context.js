@@ -1,5 +1,10 @@
 import React, { createContext, useReducer } from "react";
-import { SET_RESULTS, RESET_RESULTS, SET_NOMINATIONS } from "./actions";
+import {
+  SET_RESULTS,
+  RESET_RESULTS,
+  SET_NOMINATIONS,
+  DELETE_NOMINATION,
+} from "./actions";
 
 export const SearchContext = createContext();
 
@@ -27,6 +32,13 @@ const reducer = (state, action) => {
       return {
         ...state,
         nominations: [...state.nominations, action.payload],
+      };
+    case DELETE_NOMINATION:
+      return {
+        ...state,
+        nominations: state.nominations.filter(
+          (movie) => movie.imdbID !== action.payload.imdbID
+        ),
       };
     default:
       throw new Error("An unknown error occurred on context");

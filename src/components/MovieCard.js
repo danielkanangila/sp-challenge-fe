@@ -1,36 +1,45 @@
-import React, { useContext, useState } from "react";
-import { setNominations } from "../context/actions";
-import { SearchContext } from "../context/search-context";
+import React from "react";
 import styles from "./../styles/movie-card.module.scss";
 import Image from "./Image";
+import MouseHover from "./MouseHover";
 
-const MovieCard = ({ onClick, ...rest }) => {
-  const [isMouseHover, setIsMouseHover] = useState(false);
-  const handleHover = (status) => setIsMouseHover(status);
-
+const MovieCard = (props) => {
   return (
-    <div
-      onMouseEnter={() => handleHover(true)}
-      onMouseLeave={() => handleHover(false)}
-      className={styles.movie_card}
-    >
-      <CardContent {...rest} />
-      <SubCard {...rest} visibility={isMouseHover} />
-    </div>
+    <MouseHover className={styles.movie_card}>
+      {(hover) => (
+        <>
+          <CardContent {...props} />
+          {/* Only visible if mouse is hover the card */}
+          <SubCard {...props} visibility={hover} />
+        </>
+      )}
+    </MouseHover>
   );
 };
 
-const CardContent = ({ imdbID, Poster, Title, Type, Year, isSubCard }) => {
+/**
+ *
+ * @param {object} param0
+ * movie object as come from api result
+ * isSubCard: used to render full movie title on hover
+ * onNominate:  Nominate button onclick handler: call the dispatch function
+ * nominated: boolean value if movie is already nominated
+ */
+const CardContent = ({
+  Poster,
+  Title,
+  Type,
+  Year,
+  onNominate,
+  nominated,
+  isSubCard,
+}) => {
+  /** Substring to 25 character to fit in default card */
   const getFormattedTitle = () => {
     return Title.length > 25 && !isSubCard
       ? `${Title.substring(0, 25)}...`
       : Title;
   };
-
-  const [_, dispatch] = useContext(SearchContext);
-
-  const onNominate = () =>
-    dispatch(setNominations({ imdbID, Poster, Title, Type, Year }));
 
   return (
     <>
@@ -44,7 +53,13 @@ const CardContent = ({ imdbID, Poster, Title, Type, Year, isSubCard }) => {
             {Year} {Type}
           </span>
         </div>
-        <button onClick={onNominate} className="btn btn-default btn-small">
+        <button
+          onClick={onNominate}
+          className={`btn btn-default btn-small ${
+            nominated ? "btn-disabled" : ""
+          }`}
+          disabled={nominated}
+        >
           Nominate
         </button>
       </div>
@@ -52,6 +67,12 @@ const CardContent = ({ imdbID, Poster, Title, Type, Year, isSubCard }) => {
   );
 };
 
+/**
+ * This component his hidden by default and visible on mouse hover on main card
+ * Allow user to see movie details if any
+ * visibility: only visible on card hover
+ * rest: movie object
+ */
 const SubCard = ({ visibility, ...rest }) => {
   if (visibility) {
     return (

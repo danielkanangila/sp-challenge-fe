@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const MouseHover = ({ children }) => {
+const MouseHover = ({ children, ...rest }) => {
   const [hover, setHover] = useState(false);
 
   const handleMouseHover = (status) => {
@@ -11,6 +11,7 @@ const MouseHover = ({ children }) => {
     <div
       onMouseEnter={() => handleMouseHover(true)}
       onMouseLeave={() => handleMouseHover(false)}
+      {...rest}
     >
       {children(hover)}
     </div>

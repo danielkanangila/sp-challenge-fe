@@ -39,4 +39,15 @@ code {
     background: #f3353e;
     color: #fff;
   }
+
+  &-disabled {
+    border: 1px solid #f19ea2;
+    color: #f19ea2;
+
+    &:hover {
+      background-color: #fff;
+      color: #f19ea2;
+      cursor: not-allowed;
+    }
+  }
 }

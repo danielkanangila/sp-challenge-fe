@@ -56,6 +56,13 @@ const SearchField = ({ handleQuery, searchResult }) => {
       : styles.searchbar_field;
   };
 
+  /**
+   * Detect when user press enter: call submit handler function
+   */
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) handleSubmit(query);
+  };
+
   return (
     <div className={setSearchFieldClassName()}>
       <span className={`material-icons ${styles.icon} ${styles.loop}`}>
@@ -72,6 +79,7 @@ const SearchField = ({ handleQuery, searchResult }) => {
         onBlur={() => handleFocus(false)}
         ref={(input) => setInputEl(input)}
         autoComplete="off"
+        onKeyDown={handleKeyDown}
       />
       {/* Show clean icon when user start to fill the input  */}
       {query && (

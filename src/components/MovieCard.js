@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./../styles/movie-card.module.scss";
+import Image from "./Image";
 
 const MovieCard = ({ onClick, ...rest }) => {
   const [isMouseHover, setIsMouseHover] = useState(false);
@@ -27,7 +28,7 @@ const CardContent = ({ Poster, Title, Type, Year, isSubCard, onClick }) => {
   return (
     <>
       <div className={styles.img_wrapper}>
-        <img src={Poster} alt={Title} />
+        <Image source={Poster === "N/A" ? undefined : Poster} alt={Title} />
       </div>
       <div className={styles.card_details}>
         <div className={styles.card_details_txt_wrapper}>

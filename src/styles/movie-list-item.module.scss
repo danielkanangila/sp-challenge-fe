@@ -1,0 +1,37 @@
+.movie_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 7px 10px;
+  transition: all 0.3 ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+
+  .img_wrapper {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h4 {
+    font-size: 0.9em;
+  }
+
+  span {
+    font-size: 0.7rem;
+    color: #757575;
+  }
+
+  .movie_details {
+    width: fit-content;
+  }
+}

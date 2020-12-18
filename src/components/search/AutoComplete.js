@@ -1,4 +1,5 @@
 import React from "react";
+import MovieListItem from "../MovieListItem";
 import styles from "./../../styles/searchbar.module.scss";
 
 const AutoComplete = ({ handleSubmit, searchResult, visibility }) => {
@@ -12,7 +13,7 @@ const AutoComplete = ({ handleSubmit, searchResult, visibility }) => {
         {searchResult.length === 0 && <h2>No movie much this title</h2>}
         {searchResult.length > 0 &&
           searchResult.map((result, index) => (
-            <AutoCompleteItem {...result} key={index} onClick={handleClick} />
+            <MovieListItem {...result} key={index} onClick={handleClick} />
           ))}
       </div>
     );

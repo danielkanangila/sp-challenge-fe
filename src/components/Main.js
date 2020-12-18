@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./../styles/main.module.scss";
 import Logo from "./Logo";
-import SearchBar from "./SearchBar";
+import SearchBar from "./search/SearchBar";
 
 const Main = () => {
   return (

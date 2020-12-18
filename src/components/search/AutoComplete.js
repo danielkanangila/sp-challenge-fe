@@ -13,7 +13,11 @@ const AutoComplete = ({ handleSubmit, searchResult, visibility }) => {
         {searchResult.length === 0 && <h2>No movie much this title</h2>}
         {searchResult.length > 0 &&
           searchResult.map((result, index) => (
-            <MovieListItem {...result} key={index} onClick={handleClick} />
+            <MovieListItem
+              {...result}
+              key={index}
+              onClick={(movie) => handleClick(movie.Title)}
+            />
           ))}
       </div>
     );

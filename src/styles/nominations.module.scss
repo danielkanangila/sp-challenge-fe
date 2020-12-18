@@ -6,10 +6,16 @@
 
   h2 {
     @extend %title;
+    padding: 15px;
   }
 }
 
 .sub_wrapper {
   @extend %main-content;
+  padding: 0;
   width: 100%;
+}
+
+.movie_item {
+  padding: 7px 15px !important;
 }

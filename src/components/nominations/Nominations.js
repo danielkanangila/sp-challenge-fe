@@ -12,7 +12,12 @@ const Nominations = () => {
         <h2>Nominations</h2>
         <div className={styles.nominates}>
           {state.nominations.map((movie) => (
-            <MovieListItem {...movie} key={movie.imdbID} />
+            <MovieListItem
+              {...movie}
+              key={movie.imdbID}
+              className={styles.movie_item}
+              deleteAction={(id) => {}}
+            />
           ))}
         </div>
       </div>

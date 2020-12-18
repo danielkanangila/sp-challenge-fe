@@ -3,8 +3,8 @@
   flex-direction: row;
   align-items: center;
   padding: 7px 10px;
-  transition: all 0.3 ease;
-  cursor: pointer;
+  transition: all 0.3 ease !important;
+  cursor: auto;
 
   &:hover {
     background-color: #e0e0e0;
@@ -23,15 +23,33 @@
   }
 
   h4 {
-    font-size: 0.9em;
+    font-size: 0.85em;
   }
 
-  span {
+  .text_small {
     font-size: 0.7rem;
     color: #757575;
   }
 
+  .content_right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 40px);
+  }
+
   .movie_details {
     width: fit-content;
+  }
+
+  .actions {
+    display: flex;
+    z-index: 900;
+  }
+
+  .actions span {
+    font-size: 1.3em;
+    color: #f3353e;
+    cursor: pointer;
   }
 }

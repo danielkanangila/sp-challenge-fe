@@ -1,0 +1,9 @@
+@import "./all.scss";
+
+.search_results {
+  @extend %main-content;
+
+  h2 {
+    @extend %title;
+  }
+}

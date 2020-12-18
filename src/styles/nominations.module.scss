@@ -1,0 +1,17 @@
+@import "./all.scss";
+
+.nominations {
+  @extend %main-content;
+  padding: 0;
+  background: transparent;
+
+  h2 {
+    @extend %title;
+  }
+}
+
+.sub_wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 15px;
+}

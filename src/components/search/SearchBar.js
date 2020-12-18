@@ -3,7 +3,7 @@ import React, { useCallback, useState } from "react";
 import useApi from "./../../hooks/useApi";
 import { search } from "./../../api/search";
 import SearchField from "./SearchField";
-import styles from "./../../styles/search.module.scss";
+import styles from "./../../styles/searchbar.module.scss";
 
 const SearchBar = () => {
   const [searchResult, setSearchResult] = useState([]);

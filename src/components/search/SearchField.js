@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Divider } from "../styled-components";
-import styles from "./../../styles/search.module.scss";
+import styles from "./../../styles/searchbar.module.scss";
 import AutoComplete from "./AutoComplete";
 
 /**

@@ -1,0 +1,48 @@
+.searchbar {
+  padding: 15px;
+  background-color: #ffffff;
+  margin-bottom: 15px;
+
+  label {
+    display: block;
+    font-size: 0.8rem;
+  }
+
+  &_field {
+    position: relative;
+    margin-top: 7px;
+  }
+
+  &_field input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #dfe1e5;
+    border-radius: 5px;
+    transition: all 0.3 ease;
+
+    &:focus {
+      box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    }
+
+    &.filled {
+      padding-right: 40px;
+    }
+  }
+
+  &_field span {
+    position: absolute;
+    color: #bdbdbd;
+    top: 9px;
+    font-size: 1.2em;
+  }
+
+  &_field .loop {
+    left: 10px;
+  }
+
+  &_field .close {
+    right: 10px;
+    color: #757575;
+    cursor: pointer;
+  }
+}

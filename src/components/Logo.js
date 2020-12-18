@@ -5,6 +5,9 @@ const Logo = () => {
   return <LogoText>The Shoppies</LogoText>;
 };
 
-const LogoText = styled.h1``;
+const LogoText = styled.h1`
+  font-weight: bold;
+  margin: 20px 0;
+`;
 
 export default Logo;

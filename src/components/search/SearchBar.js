@@ -12,18 +12,22 @@ const SearchBar = () => {
 
   const handleQuery = useCallback(
     async (query) => {
-      if (!query) return;
+      if (!query) return cleanStates();
       const response = await searchApi.request(query);
       if (response.data.Response === "True") {
         setSearchResult(response.data.Search);
         setTotalResults(parseInt(response.data.totalResults));
       } else {
-        setSearchResult([]);
-        setTotalResults(0);
+        cleanStates();
       }
     },
     [searchApi]
   );
+
+  const cleanStates = () => {
+    setSearchResult([]);
+    setTotalResults(0);
+  };
 
   return (
     <div className={styles.searchbar}>

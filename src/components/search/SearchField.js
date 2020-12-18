@@ -37,6 +37,7 @@ const SearchField = ({ handleQuery, searchResult }) => {
    */
   const cleanQuery = () => {
     setQuery("");
+    handleSubmit("");
     inputEl.focus();
   };
 

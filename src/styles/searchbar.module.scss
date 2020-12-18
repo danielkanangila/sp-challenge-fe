@@ -65,10 +65,12 @@
   }
 
   &_auto__complete {
+    display: block;
     position: relative;
     padding: 0 0px 15px;
     max-height: 300px;
     overflow: auto;
+    z-index: 800;
 
     h2 {
       font-weight: bold;

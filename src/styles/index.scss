@@ -1,4 +1,5 @@
 @import "./reset.scss";
+@import "./animations.scss";
 
 body {
   margin: 0;
@@ -18,4 +19,24 @@ code {
   box-sizing: border-box;
   transition: all 0.3 ease;
   color: #212121;
+}
+
+.btn {
+  border: 1px solid #f3353e;
+  padding: 15px;
+  color: #f3353e;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &-small {
+    padding: 5px;
+    font-size: 0.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    background: #f3353e;
+    color: #fff;
+  }
 }

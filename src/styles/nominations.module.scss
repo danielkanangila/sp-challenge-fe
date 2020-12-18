@@ -1,7 +1,6 @@
 @import "./all.scss";
 
 .nominations {
-  @extend %main-content;
   padding: 0;
   background: transparent;
 
@@ -11,7 +10,6 @@
 }
 
 .sub_wrapper {
+  @extend %main-content;
   width: 100%;
-  background-color: #ffffff;
-  padding: 15px;
 }

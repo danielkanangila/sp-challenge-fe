@@ -1,10 +1,13 @@
-import Main from "./components/Main";
+import Home from "./pages/Home";
+import { SearchContextProvider } from "./context/search-context";
 
 function App() {
   return (
-    <div className="App">
-      <Main />
-    </div>
+    <SearchContextProvider>
+      <div className="App">
+        <Home />
+      </div>
+    </SearchContextProvider>
   );
 }
 

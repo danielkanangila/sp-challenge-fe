@@ -1,0 +1,64 @@
+@import "./all.scss";
+
+.movie_card {
+  width: fit-content;
+  border: 1px solid #dfe1e5;
+  border-radius: 5px;
+
+  .img_wrapper {
+    width: fit-content;
+    height: 140px;
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .card_details {
+    padding: 5px 5px 7px;
+    h4 {
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+    span {
+      display: block;
+      @extend %text-small;
+      padding: 5px 0 7px;
+    }
+
+    &_txt_wrapper {
+      height: 47px;
+    }
+  }
+
+  &:hover {
+    position: relative;
+    width: 110px;
+  }
+
+  .sub_card {
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    width: 150px;
+    background-color: #fff;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    transition: ease-in 0.3s;
+
+    .img_wrapper {
+      height: fit-content;
+    }
+
+    .card_details {
+      padding: 5px 10px 10px;
+    }
+
+    .card_details_txt_wrapper {
+      height: fit-content;
+    }
+  }
+}

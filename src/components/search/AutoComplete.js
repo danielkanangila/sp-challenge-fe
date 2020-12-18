@@ -20,25 +20,4 @@ const AutoComplete = ({ handleSubmit, searchResult, visibility }) => {
   } else return <></>;
 };
 
-// The properties have first capital letter as defined in the api side,
-// are not react components.
-const AutoCompleteItem = ({ Poster, Title, Type, Year, onClick }) => {
-  return (
-    <div
-      onClick={() => onClick(Title)}
-      className={styles.searchbar_auto__complete___item}
-    >
-      <div className={styles.img_wrapper}>
-        {Poster !== "N/A" && <img src={Poster} alt={Title} />}
-      </div>
-      <div className={styles.movie_details}>
-        <h4>{Title}</h4>
-        <span>
-          {Year} {Type}
-        </span>
-      </div>
-    </div>
-  );
-};
-
 export default AutoComplete;

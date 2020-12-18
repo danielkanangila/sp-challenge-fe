@@ -1,5 +1,6 @@
 export const SET_RESULTS = "SET_RESULTS";
 export const RESET_RESULTS = "RESET_RESULTS";
+export const SET_NOMINATIONS = "SET_NOMINATIONS";
 
 export const setResults = (results) => {
   return {
@@ -18,5 +19,12 @@ export const resetResult = (query) => {
     payload: {
       query,
     },
+  };
+};
+
+export const setNominations = (movie) => {
+  return {
+    type: SET_NOMINATIONS,
+    payload: movie,
   };
 };

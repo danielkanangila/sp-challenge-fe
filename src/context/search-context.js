@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import { SET_RESULTS, RESET_RESULTS } from "./actions";
+import { SET_RESULTS, RESET_RESULTS, SET_NOMINATIONS } from "./actions";
 
 export const SearchContext = createContext();
 
@@ -21,6 +21,12 @@ const reducer = (state, action) => {
       return {
         ...initialState,
         ...action.payload,
+        nominations: state.nominations,
+      };
+    case SET_NOMINATIONS:
+      return {
+        ...state,
+        nominations: [...state.nominations, action.payload],
       };
     default:
       throw new Error("An unknown error occurred on context");

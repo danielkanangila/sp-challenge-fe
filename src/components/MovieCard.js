@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { setNominations } from "../context/actions";
+import { SearchContext } from "../context/search-context";
 import styles from "./../styles/movie-card.module.scss";
 import Image from "./Image";
 
@@ -18,12 +20,17 @@ const MovieCard = ({ onClick, ...rest }) => {
   );
 };
 
-const CardContent = ({ Poster, Title, Type, Year, isSubCard, onClick }) => {
+const CardContent = ({ imdbID, Poster, Title, Type, Year, isSubCard }) => {
   const getFormattedTitle = () => {
     return Title.length > 25 && !isSubCard
       ? `${Title.substring(0, 25)}...`
       : Title;
   };
+
+  const [_, dispatch] = useContext(SearchContext);
+
+  const onNominate = () =>
+    dispatch(setNominations({ imdbID, Poster, Title, Type, Year, isSubCard }));
 
   return (
     <>
@@ -37,7 +44,9 @@ const CardContent = ({ Poster, Title, Type, Year, isSubCard, onClick }) => {
             {Year} {Type}
           </span>
         </div>
-        <button className="btn btn-default btn-small">Nominate</button>
+        <button onClick={onNominate} className="btn btn-default btn-small">
+          Nominate
+        </button>
       </div>
     </>
   );

@@ -44,6 +44,12 @@ const MovieListItem = ({
   );
 };
 
+/**
+ * List of actions to perform on movie Item
+ * @param {object} param0
+ * deleteHandler callback function for delete action
+ * visibility show only if actions are available
+ */
 const Actions = ({ deleteHandler, visibility }) => {
   if (visibility) {
     return (
@@ -54,6 +60,11 @@ const Actions = ({ deleteHandler, visibility }) => {
   } else return <></>;
 };
 
+/**
+ * Delete Action Component
+ * @param {object} param0
+ * deleteHandler callback function for delete action
+ */
 const DeleteAction = ({ deleteHandler }) => {
   return (
     <MouseHover>

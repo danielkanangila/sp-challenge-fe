@@ -29,6 +29,12 @@ const reducer = (state, action) => {
         nominations: state.nominations,
       };
     case SET_NOMINATIONS:
+      // Check if movie is already nominated
+      const nominatedMovies = state.nominations.filter(
+        (movie) => movie.imdbID === action.payload.imdbID
+      );
+      // if movie is already nominated do nothing
+      if (nominatedMovies.length) return state;
       return {
         ...state,
         nominations: [...state.nominations, action.payload],

@@ -30,7 +30,7 @@ const CardContent = ({ imdbID, Poster, Title, Type, Year, isSubCard }) => {
   const [_, dispatch] = useContext(SearchContext);
 
   const onNominate = () =>
-    dispatch(setNominations({ imdbID, Poster, Title, Type, Year, isSubCard }));
+    dispatch(setNominations({ imdbID, Poster, Title, Type, Year }));
 
   return (
     <>

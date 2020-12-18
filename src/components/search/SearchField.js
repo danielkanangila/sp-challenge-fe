@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Divider } from "../styled-components";
 import styles from "./../../styles/search.module.scss";
+import AutoComplete from "./AutoComplete";
 
 /**
  *
@@ -12,11 +14,21 @@ const SearchField = ({ handleQuery, searchResult }) => {
   const [query, setQuery] = useState("");
   const [isFocused, setIsFocused] = useState(null); // track input focus to update the div.field className
   const [inputEl, setInputEl] = useState(null); // input element - used to set focus programmatically
+  const [autocompleteVisibility, setAutocomplete] = useState(false);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
     /** API call callback function */
-    handleQuery(query);
+    handleQuery(e.target.value);
+    // Setting divider visibility
+    setAutocomplete(!!e.target.value);
+  };
+
+  const handleSubmit = (movieTitle) => {
+    setQuery(movieTitle);
+    handleQuery(movieTitle);
+    // Setting divider visibility
+    setAutocomplete(false);
   };
 
   /**
@@ -43,9 +55,12 @@ const SearchField = ({ handleQuery, searchResult }) => {
       ? `${styles.searchbar_field} ${styles.focused}`
       : styles.searchbar_field;
   };
+
   return (
     <div className={setSearchFieldClassName()}>
-      <span className={`material-icons ${styles.loop}`}>search</span>
+      <span className={`material-icons ${styles.icon} ${styles.loop}`}>
+        search
+      </span>
       <input
         type="text"
         name="query"
@@ -56,13 +71,23 @@ const SearchField = ({ handleQuery, searchResult }) => {
         onFocus={() => handleFocus(true)}
         onBlur={() => handleFocus(false)}
         ref={(input) => setInputEl(input)}
+        autoComplete="off"
       />
       {/* Show clean icon when user start to fill the input  */}
       {query && (
-        <span onClick={cleanQuery} className={`material-icons ${styles.close}`}>
+        <span
+          onClick={cleanQuery}
+          className={`material-icons ${styles.icon} ${styles.close}`}
+        >
           close
         </span>
       )}
+      {autocompleteVisibility && <Divider width="98%" />}
+      <AutoComplete
+        searchResult={searchResult}
+        visibility={autocompleteVisibility}
+        handleSubmit={handleSubmit}
+      />
     </div>
   );
 };

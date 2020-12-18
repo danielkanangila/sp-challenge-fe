@@ -1,12 +1,24 @@
 import React, { useCallback, useState } from "react";
-import styles from "./../../styles/search.module.scss";
+
+import useApi from "./../../hooks/useApi";
+import { search } from "./../../api/search";
 import SearchField from "./SearchField";
+import styles from "./../../styles/search.module.scss";
 
 const SearchBar = () => {
   const [searchResult, setSearchResult] = useState([]);
-  const handleQuery = useCallback((query) => {
-    console.log(query);
-  }, []);
+  const searchApi = useApi(search);
+
+  const handleQuery = useCallback(
+    async (query) => {
+      if (!query) return;
+      const response = await searchApi.request(query);
+      if (response.data.Response === "True")
+        setSearchResult(response.data.Search);
+      else setSearchResult([]);
+    },
+    [searchApi]
+  );
 
   return (
     <div className={styles.searchbar}>

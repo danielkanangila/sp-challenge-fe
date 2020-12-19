@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import { SearchContextProvider } from "./context/search-context";
 import Notifications from "./components/Notifications";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <div className="App">
         <Home />
         <Notifications />
+        <Footer />
       </div>
     </SearchContextProvider>
   );

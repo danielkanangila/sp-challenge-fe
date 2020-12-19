@@ -1,0 +1,73 @@
+@import "./all.scss";
+
+.movie {
+  @extend %container;
+  .main_content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px 15px 20px;
+    margin: 15px 0 40px;
+    box-shadow: 0 1px 2px rgba(32, 33, 36, 0.28);
+
+    @media (min-width: 500px) {
+      flex-direction: row;
+    }
+  }
+  .poster {
+    width: 200px;
+    height: 300px;
+    overflow-y: hidden;
+    margin: 0 auto 15px;
+
+    @media (min-width: 500px) {
+      width: 250px;
+      margin: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .content_txt {
+    margin-left: 15px;
+    @media (min-width: 500px) {
+      width: calc(100% - 100px);
+    }
+  }
+
+  .title {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  p {
+    line-height: 1.25;
+  }
+}
+
+.details {
+  margin-top: 8px;
+  p {
+    font-size: 0.85rem;
+    color: #757575;
+  }
+
+  &_main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    @media (min-width: 750px) {
+      width: 60%;
+    }
+  }
+
+  &_other h4 {
+    font-size: 0.9rem;
+    padding: 20px 0 5px;
+  }
+}

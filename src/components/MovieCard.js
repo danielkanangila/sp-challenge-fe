@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import styles from "./../styles/movie-card.module.scss";
 import Image from "./Image";
 import MouseHover from "./MouseHover";
+import { Link } from "react-router-dom";
 
 const MovieCard = (props) => {
   return (
@@ -27,6 +28,7 @@ const MovieCard = (props) => {
  * nominated: boolean value if movie is already nominated
  */
 const CardContent = ({
+  imdbID,
   Poster,
   Title,
   Type,
@@ -49,7 +51,9 @@ const CardContent = ({
       </div>
       <div className={styles.card_details}>
         <div className={styles.card_details_txt_wrapper}>
-          <h4>{getFormattedTitle()}</h4>
+          <Link to={`/movies/${imdbID}`}>
+            <h4>{getFormattedTitle()}</h4>
+          </Link>
           <span>
             {Year} {Type}
           </span>
@@ -76,7 +80,7 @@ const DefaultCard = ({ visibility, ...rest }) => {
     return (
       <motion.div
         animate={{ scale: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
         className={`${styles.default_card}`}
       >
         <CardContent {...rest} />
@@ -101,7 +105,7 @@ const SubCard = ({ visibility, ...rest }) => {
     return (
       <motion.div
         animate={{ width: 150 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
         className={`${styles.sub_card}`}
       >
         <CardContent {...rest} isSubCard />

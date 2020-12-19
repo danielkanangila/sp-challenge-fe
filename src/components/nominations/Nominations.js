@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import { AnimatePresence } from "framer-motion";
 
-import { SearchContext } from "../../context/search-context";
 import MovieListItem from "./../MovieListItem";
-
 import styles from "./../../styles/nominations.module.scss";
-import { deleteNomination } from "../../context/actions";
 import Banner from "../Banner";
+import useNomination from "../../hooks/useNominations";
+import { useHistory } from "react-router-dom";
 
 const Nominations = () => {
-  const [state, dispatch] = useContext(SearchContext);
+  const { nominations, remove, count } = useNomination();
+  const history = useHistory();
 
   return (
     <div className={styles.nominations}>
@@ -18,20 +18,21 @@ const Nominations = () => {
         <Banner
           message="Congratulations 🏆🎊 🎉. You reach five nominations."
           type="success"
-          visibility={state.nominations.length === 5}
+          visibility={count === 5}
         />
         <div className={styles.nominates}>
           <AnimatePresence initial={false}></AnimatePresence>
-          {state.nominations.map((movie) => (
+          {nominations.map((movie) => (
             <MovieListItem
               {...movie}
               key={movie.imdbID}
               className={styles.movie_item}
-              deleteAction={(id) => dispatch(deleteNomination(movie.imdbID))}
+              deleteAction={(id) => remove(id)}
               positionTransition
               initial={{ opacity: 0, x: 0, scale: 1 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+              onClick={() => history.push(`/movies/${movie.imdbID}`)}
             />
           ))}
         </div>

@@ -4,6 +4,7 @@ import Notifications from "./components/Notifications";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
+import Movie from "./pages/Movie";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <div className="App">
           <Header />
           <Switch>
-            <Route path="/" component={Home} />
+            <Route exact path="/" component={Home} />
+            <Route path="/movies/:imdbID" component={Movie} />
           </Switch>
           <Notifications />
           <Footer />

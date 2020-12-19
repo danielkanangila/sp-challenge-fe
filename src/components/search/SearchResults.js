@@ -88,7 +88,7 @@ const SearchResults = () => {
         ))}
       </div>
       {/* pagination */}
-      {state.pages > 10 && state.pages > state.currentPage && (
+      {state.pages > 1 && state.pages > state.currentPage && (
         <div className={styles.pagination}>
           <button onClick={onLoadMore} className="btn btn-primary">
             Load More

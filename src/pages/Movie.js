@@ -12,13 +12,6 @@ const Movie = () => {
   const { nominate, isNominate } = useNomination(); // nominations handler
   const params = useParams(); // route params
 
-  /** Call the api to get the movie corresponding to the movie imdbID */
-  const getMovie = async (imdbID) => {
-    const response = await searchApi.request(imdbID);
-    // if api call success
-    if (response.data.Response === "True") setMovie(response.data);
-  };
-
   /**
    * Nomination button handler
    */
@@ -33,10 +26,16 @@ const Movie = () => {
 
   // track route params change and when component will mount
   useEffect(() => {
-    // retrieve imdbID from params all call the getMovie function
-    if (params.imdbID) getMovie(params.imdbID);
+    /** Call the api to get the movie corresponding to the movie imdbID */
+    const fetchMovie = async (imdbID) => {
+      const response = await searchApi.request(imdbID);
+      // if api call success
+      if (response.data.Response === "True") setMovie(response.data);
+    };
+    // retrieve imdbID from params all call the fetchMovie function
+    if (params.imdbID) fetchMovie(params.imdbID);
     return () => {};
-  }, [params]);
+  }, [params, searchApi]);
 
   return (
     <div className={styles.movie}>

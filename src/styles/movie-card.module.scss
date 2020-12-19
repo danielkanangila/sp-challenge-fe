@@ -2,6 +2,7 @@
 
 .movie_card {
   width: fit-content;
+  position: relative;
 
   .sub_card,
   .default_card {
@@ -52,6 +53,7 @@
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
     border-radius: 5px;
     // transition: ease-in 0.3s;
+    z-index: 700;
 
     .img_wrapper {
       height: fit-content;

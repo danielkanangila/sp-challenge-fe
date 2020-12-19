@@ -26,6 +26,7 @@
     border-radius: 5px;
     transition: all 0.3 ease;
     background-color: #ffffff;
+    z-index: 800;
 
     @media (min-width: 500px) {
       width: 95%;
@@ -66,11 +67,10 @@
 
   &_auto__complete {
     display: block;
-    position: relative;
+    // position: relative;
     padding: 0 0px 15px;
     max-height: 300px;
     overflow: auto;
-    z-index: 800;
 
     h2 {
       font-weight: bold;

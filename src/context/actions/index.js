@@ -1,7 +1,11 @@
+import { makeid } from "../../utils";
+
 export const SET_RESULTS = "SET_RESULTS";
 export const RESET_RESULTS = "RESET_RESULTS";
 export const SET_NOMINATIONS = "SET_NOMINATIONS";
 export const DELETE_NOMINATION = "DELETE_NOMINATION";
+export const SEND_NOTIFICATION = "SEND_NOTIFICATION";
+export const CLOSE_NOTIFICATION = "CLOSE_NOTIFICATION";
 
 export const setResults = (results) => {
   return {
@@ -34,5 +38,19 @@ export const deleteNomination = (imdbID) => {
   return {
     type: DELETE_NOMINATION,
     payload: { imdbID },
+  };
+};
+
+export const sendNotification = (message, type, delay = 3000) => {
+  return {
+    type: SEND_NOTIFICATION,
+    payload: { id: makeid(5), message, type, delay },
+  };
+};
+
+export const closeNotification = (id) => {
+  return {
+    type: CLOSE_NOTIFICATION,
+    payload: { id },
   };
 };

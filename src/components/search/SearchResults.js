@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { setNominations } from "../../context/actions";
+import { sendNotification, setNominations } from "../../context/actions";
 import { SearchContext } from "../../context/search-context";
 import MovieCard from "../MovieCard";
 import styles from "./../../styles/search-results.module.scss";
@@ -7,8 +7,38 @@ import styles from "./../../styles/search-results.module.scss";
 const SearchResults = () => {
   const [state, dispatch] = useContext(SearchContext);
 
-  /** Nominate button onclick handler: call the dispatch function */
-  const onNominate = (movie) => dispatch(setNominations(movie));
+  /** Nominate button onclick handler: call the dispatch function
+   * Can nominate only 5 movies
+   */
+  const onNominate = (movie) => {
+    // check if nominations state is less than five
+    if (state.nominations.length === 5)
+      return dispatch(
+        sendNotification("You can only nominate 5 movies 🚨.", "warning", 5000)
+      );
+    /**
+     * Track nomination length,  If 5 movies are nominated send notification
+     * */
+    if (state.nominations.length === 4)
+      dispatch(
+        sendNotification(
+          "Congratulations 🏆🎊 🎉. You reach five nominations.",
+          "success"
+        )
+      );
+    // if not call the dispatcher and add movie to the nomination array
+    dispatch(setNominations(movie));
+    /**
+     * Track nomination length,  If 5 movies are nominated send notification
+     * */
+    if (state.nominations.length === 5)
+      dispatch(
+        sendNotification(
+          "Congratulations 🏆🎊 🎉. You reach five nominations.",
+          "success"
+        )
+      );
+  };
 
   /**
    * Check if the movie is already nominated to disable the nominate

@@ -4,6 +4,8 @@ import {
   RESET_RESULTS,
   SET_NOMINATIONS,
   DELETE_NOMINATION,
+  SEND_NOTIFICATION,
+  CLOSE_NOTIFICATION,
 } from "./actions";
 
 export const SearchContext = createContext();
@@ -13,6 +15,7 @@ const initialState = {
   totalResults: 0,
   query: "",
   nominations: [],
+  notifications: [],
 };
 
 const reducer = (state, action) => {
@@ -44,6 +47,18 @@ const reducer = (state, action) => {
         ...state,
         nominations: state.nominations.filter(
           (movie) => movie.imdbID !== action.payload.imdbID
+        ),
+      };
+    case SEND_NOTIFICATION:
+      return {
+        ...state,
+        notifications: [...state.notifications, action.payload],
+      };
+    case CLOSE_NOTIFICATION:
+      return {
+        ...state,
+        notifications: state.notifications.filter(
+          (notification) => notification.id !== action.payload.id
         ),
       };
     default:

@@ -8,6 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f6f8;
 }
 
 code {
@@ -19,6 +20,12 @@ code {
   box-sizing: border-box;
   transition: all 0.3 ease;
   color: #212121;
+}
+
+button {
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
 }
 
 .btn {

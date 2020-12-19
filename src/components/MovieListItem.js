@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 import styles from "./../styles/movie-list-item.module.scss";
 import Image from "./Image";
 import MouseHover from "./MouseHover";
@@ -12,6 +14,7 @@ const MovieListItem = ({
   className,
   deleteAction,
   onClick,
+  ...rest
 }) => {
   /** Handle click on card */
   const handleClick = () => {
@@ -24,7 +27,11 @@ const MovieListItem = ({
   };
 
   return (
-    <div onClick={handleClick} className={`${styles.movie_item} ${className}`}>
+    <motion.div
+      onClick={handleClick}
+      className={`${styles.movie_item} ${className}`}
+      {...rest}
+    >
       <div className={styles.img_wrapper}>
         <Image source={Poster === "N/A" ? undefined : Poster} alt={Title} />
       </div>
@@ -40,7 +47,7 @@ const MovieListItem = ({
           deleteHandler={handleDeleteAction}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

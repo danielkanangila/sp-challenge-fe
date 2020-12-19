@@ -23,7 +23,8 @@ const SearchResults = () => {
       dispatch(
         sendNotification(
           "Congratulations 🏆🎊 🎉. You reach five nominations.",
-          "success"
+          "success",
+          3000
         )
       );
     // if not call the dispatcher and add movie to the nomination array

@@ -4,12 +4,12 @@ const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 const settings = {
   development: {
     apiURL: "http://www.omdbapi.com",
-    baseQuery: `?apikey=${API_KEY}`,
+    apiKey: `?apikey=${API_KEY}`,
     API_KEY,
   },
   production: {
     apiURL: "http://www.omdbapi.com",
-    baseQuery: `?apikey=${API_KEY}`,
+    apiKey: `?apikey=${API_KEY}`,
     API_KEY,
   },
 };

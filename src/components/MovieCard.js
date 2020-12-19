@@ -9,7 +9,7 @@ const MovieCard = (props) => {
     <MouseHover className={styles.movie_card}>
       {(hover) => (
         <>
-          <CardContent {...props} />
+          <DefaultCard {...props} visibility={hover} />
           {/* Only visible if mouse is hover the card */}
           <SubCard {...props} visibility={hover} />
         </>
@@ -69,6 +69,28 @@ const CardContent = ({
 };
 
 /**
+ * Default card rendered
+ */
+const DefaultCard = ({ visibility, ...rest }) => {
+  if (visibility) {
+    return (
+      <motion.div
+        animate={{ scale: 0 }}
+        transition={{ duration: 0.5 }}
+        className={`${styles.default_card}`}
+      >
+        <CardContent {...rest} />
+      </motion.div>
+    );
+  } else
+    return (
+      <div className={`${styles.default_card}`}>
+        <CardContent {...rest} />
+      </div>
+    );
+};
+
+/**
  * This component his hidden by default and visible on mouse hover on main card
  * Allow user to see movie details if any
  * visibility: only visible on card hover
@@ -78,7 +100,7 @@ const SubCard = ({ visibility, ...rest }) => {
   if (visibility) {
     return (
       <motion.div
-        animate={{ scale: 1.2 }}
+        animate={{ width: 150 }}
         transition={{ duration: 0.5 }}
         className={`${styles.sub_card}`}
       >

@@ -1,0 +1,6 @@
+@import "./all.scss";
+
+.header {
+  @extend %container;
+  margin: 20px 0 0;
+}

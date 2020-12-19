@@ -6,6 +6,7 @@ import MovieListItem from "./../MovieListItem";
 
 import styles from "./../../styles/nominations.module.scss";
 import { deleteNomination } from "../../context/actions";
+import Banner from "../Banner";
 
 const Nominations = () => {
   const [state, dispatch] = useContext(SearchContext);
@@ -14,6 +15,11 @@ const Nominations = () => {
     <div className={styles.nominations}>
       <div className={styles.sub_wrapper}>
         <h2>Nominations</h2>
+        <Banner
+          message="Congratulations 🏆🎊 🎉. You reach five nominations."
+          type="success"
+          visibility={state.nominations.length === 5}
+        />
         <div className={styles.nominates}>
           <AnimatePresence initial={false}></AnimatePresence>
           {state.nominations.map((movie) => (

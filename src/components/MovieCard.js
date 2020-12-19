@@ -4,19 +4,32 @@ import styles from "./../styles/movie-card.module.scss";
 import Image from "./Image";
 import MouseHover from "./MouseHover";
 import { Link } from "react-router-dom";
+import { isBrowser } from "./../utils";
 
 const MovieCard = (props) => {
-  return (
-    <MouseHover className={styles.movie_card}>
-      {(hover) => (
-        <>
-          <DefaultCard {...props} visibility={hover} />
-          {/* Only visible if mouse is hover the card */}
-          <SubCard {...props} visibility={hover} />
-        </>
-      )}
-    </MouseHover>
-  );
+  /**
+   * Check the application is running in  browser, if not disable animations
+   * otherwise render with animations
+   */
+  if (isBrowser()) {
+    return (
+      <MouseHover className={styles.movie_card}>
+        {(hover) => (
+          <>
+            <DefaultCard {...props} visibility={hover} />
+            {/* Only visible if mouse is hover the card */}
+            <SubCard {...props} visibility={hover} />
+          </>
+        )}
+      </MouseHover>
+    );
+  } else {
+    return (
+      <div className={`${styles.movie_card} ${styles.mobile}`}>
+        <DefaultCard {...props} />;
+      </div>
+    );
+  }
 };
 
 /**

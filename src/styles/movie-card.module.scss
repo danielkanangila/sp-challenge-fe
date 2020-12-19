@@ -46,8 +46,10 @@
   }
 
   &:hover {
-    position: relative;
-    width: 110px;
+    @media (min-width: 600px) {
+      position: relative;
+      width: 110px;
+    }
   }
 
   .sub_card {

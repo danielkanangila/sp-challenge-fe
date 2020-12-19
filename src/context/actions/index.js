@@ -14,6 +14,9 @@ export const setResults = (results) => {
       results: results.Search,
       totalResults: results.totalResults,
       query: results.query,
+      pages: results.pages
+        ? results.pages
+        : Math.ceil(parseInt(results.totalResults) / results.Search.length),
     },
   };
 };

@@ -16,6 +16,8 @@ const initialState = {
   query: "",
   nominations: [],
   notifications: [],
+  currentPage: 1,
+  pages: 0,
 };
 
 const reducer = (state, action) => {

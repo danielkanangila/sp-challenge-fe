@@ -32,7 +32,7 @@ const Notification = ({ id, message, type, delay = 3000, close }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [id, close]);
+  }, [id, close, delay]);
 
   return (
     <motion.li

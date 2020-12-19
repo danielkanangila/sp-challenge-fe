@@ -41,7 +41,7 @@ export const deleteNomination = (imdbID) => {
   };
 };
 
-export const sendNotification = (message, type, delay = 3000) => {
+export const sendNotification = (message, type, delay) => {
   return {
     type: SEND_NOTIFICATION,
     payload: { id: makeid(5), message, type, delay },

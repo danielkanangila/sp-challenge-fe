@@ -41,13 +41,13 @@
 
   .sub_card {
     position: absolute;
-    top: -10px;
-    left: -20px;
-    width: 150px;
+    top: 0;
+    // left: -20px;
+    // // width: 150px;
     background-color: #fff;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
     border-radius: 5px;
-    transition: ease-in 0.3s;
+    // transition: ease-in 0.3s;
 
     .img_wrapper {
       height: fit-content;

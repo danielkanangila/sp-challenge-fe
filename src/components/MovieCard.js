@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import styles from "./../styles/movie-card.module.scss";
 import Image from "./Image";
 import MouseHover from "./MouseHover";
@@ -76,9 +77,13 @@ const CardContent = ({
 const SubCard = ({ visibility, ...rest }) => {
   if (visibility) {
     return (
-      <div className={`${styles.sub_card}`}>
+      <motion.div
+        animate={{ scale: 1.2 }}
+        transition={{ duration: 0.5 }}
+        className={`${styles.sub_card}`}
+      >
         <CardContent {...rest} isSubCard />
-      </div>
+      </motion.div>
     );
   } else return <></>;
 };

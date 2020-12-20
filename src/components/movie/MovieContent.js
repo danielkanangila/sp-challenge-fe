@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./../../styles/movie.module.scss";
-import MovieNotFound from "./MovieNotFound";
 
 const MovieContent = ({ movie, onNominate, isNominate }) => {
   if (movie) {
@@ -54,13 +53,7 @@ const MovieContent = ({ movie, onNominate, isNominate }) => {
         </div>
       </div>
     );
-  } else
-    return (
-      <div className={styles.main_content}>
-        {" "}
-        <MovieNotFound visibility={true} />{" "}
-      </div>
-    );
+  } else return <></>;
 };
 
 export default MovieContent;

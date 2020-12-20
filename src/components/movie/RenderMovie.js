@@ -13,7 +13,7 @@ const RenderMovie = ({ movie, onNominate, isNominate }) => {
         onNominate={onNominate}
         isNominate={isNominate}
       />
-      <MovieNotFound visibility={!!movie} />
+      <MovieNotFound visibility={!movie} />
     </div>
   );
 };

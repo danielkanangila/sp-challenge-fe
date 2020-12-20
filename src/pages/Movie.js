@@ -32,7 +32,7 @@ const Movie = () => {
     // retrieve imdbID from params all call the fetchMovie function
     if (params.imdbID) fetchMovie(params.imdbID);
     return () => {};
-  }, [params]);
+  }, [params]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <RenderMovie

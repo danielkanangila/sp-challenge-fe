@@ -1,16 +1,14 @@
-import React, { useContext } from "react";
-import { setResults } from "../../context/actions";
-import useApi from "./../../hooks/useApi";
-import { getNextPage } from "./../../api/search";
-import { SearchContext } from "../../context/search-context";
+import React from "react";
+import { fetchNextPage } from "./../../api/search";
 import MovieCard from "../MovieCard";
 import styles from "./../../styles/search-results.module.scss";
 import useNomination from "../../hooks/useNominations";
+import useSearch from "../../hooks/useSearch";
 
 const SearchResults = () => {
-  const [state, dispatch] = useContext(SearchContext);
-  const searchApi = useApi(getNextPage);
-  const nomination = useNomination();
+  const { state, request } = useSearch(fetchNextPage); // omdb api and context api handler
+  const nomination = useNomination(); // nomination handler
+
   /** Nominate button onclick handler: call the dispatch function
    * Can nominate only 5 movies
    */
@@ -18,22 +16,13 @@ const SearchResults = () => {
 
   /** Get search result next page */
   const onLoadMore = async () => {
-    if (state.pages === state.currentPage.return) return;
-    const response = await searchApi.request(
-      state.query,
-      state.currentPage + 1
-    );
-    // if response, set state and global state
-    if (response.data.Response === "True") {
-      // console.log(response);
-      dispatch(
-        setResults({
-          ...state,
-          currentPage: state.currentPage++,
-          Search: [...state.results, ...response.data.Search],
-        })
-      );
-    }
+    if (state.pages === state.currentPage) return;
+    /**
+     * The line below call the omdb api to fetch the
+     * data corresponding to the specified query
+     * and dispatch the results to the context api state
+     */
+    await request(state.query, state.currentPage + 1);
   };
 
   return (

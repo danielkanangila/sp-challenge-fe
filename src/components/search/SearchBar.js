@@ -1,47 +1,43 @@
-import React, { useCallback, useContext } from "react";
-
-import useApi from "./../../hooks/useApi";
-import { search } from "./../../api/search";
+import React, { useCallback } from "react";
+import Banner from "./../Banner";
+import useSearch from "./../../hooks/useSearch";
+import { fetchByQuery } from "./../../api/search";
 import SearchField from "./SearchField";
 import styles from "./../../styles/searchbar.module.scss";
-import { SearchContext } from "../../context/search-context";
-import { setResults, resetResult } from "./../../context/actions";
 
 const SearchBar = () => {
-  const [state, dispatch] = useContext(SearchContext); // get global state and dispatcher
-  const searchApi = useApi(search); // api call helper
+  const { state, request, hasError } = useSearch(fetchByQuery); // omdb api and context api handlers
 
   const handleQuery = useCallback(
     async (query) => {
       if (!query) return;
-      // call the api
-      const response = await searchApi.request(query);
-      // if response, set state and global state
-      if (response.data.Response === "True") {
-        dispatch(
-          setResults({
-            ...response.data,
-            query: query,
-          })
-        );
-      } else {
-        // reset global state to initial state except for query
-        dispatch(resetResult(query));
-      }
+      /**
+       * The line below call the omdb api to fetch the
+       * data corresponding to the specified query
+       * and dispatch the results to the context api state
+       */
+      await request(query);
     },
-    [searchApi, dispatch]
+    [request]
   );
 
   return (
-    <div className={styles.searchbar}>
-      <div className={styles.searchbar_header}>
-        <label>Movie Title</label>
-        {state.totalResults > 0 && (
-          <span>Total Results: {state.totalResults}</span>
-        )}
+    <>
+      <Banner
+        message="An error occurred while trying to fetch your query."
+        visibility={hasError}
+        type="danger"
+      />
+      <div className={styles.searchbar}>
+        <div className={styles.searchbar_header}>
+          <label>Movie Title</label>
+          {state.totalResults > 0 && (
+            <span>Total Results: {state.totalResults}</span>
+          )}
+        </div>
+        <SearchField handleQuery={handleQuery} searchResult={state.results} />
       </div>
-      <SearchField handleQuery={handleQuery} searchResult={state.results} />
-    </div>
+    </>
   );
 };
 

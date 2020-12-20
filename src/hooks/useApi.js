@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const useApi = (apiFunc) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [errors, setErrors] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -15,7 +15,7 @@ const useApi = (apiFunc) => {
     } catch (error) {
       setErrors(true);
       setLoading(false);
-      response = error.response;
+      return error.response;
     }
 
     return response;

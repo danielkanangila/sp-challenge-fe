@@ -57,3 +57,9 @@ Go to [http://www.omdbapi.com/apikey.aspx](http://www.omdbapi.com/apikey.aspx) t
 REACT_APP_OMDB_API_KEY=YOUR_API_KEY
 ```
 Replace `YOUR_API_KEY` by the API KEY you get by email from OMBD.
+
+4. Run
+
+```
+npm start
+```

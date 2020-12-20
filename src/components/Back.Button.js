@@ -21,6 +21,9 @@ const Button = styled.button`
   color: #616161;
   width: fit-content;
   transition: 0.3s;
+  padding: 6px 15px;
+  background-color: #dddddd;
+  border-radius: 5px;
 
   span {
     font-size: 1.15rem;
@@ -29,11 +32,11 @@ const Button = styled.button`
   }
 
   &:hover {
+    background-color: #bdbdbd;
     color: #000;
-    text-shadow: 1px 2px 8px 6px rgba(0, 0, 0, 0.5);
 
     span {
-      text-shadow: 1px 2px 8px 6px rgba(0, 0, 0, 0.5);
+      color: #000;
     }
   }
 `;

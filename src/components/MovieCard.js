@@ -26,7 +26,7 @@ const MovieCard = (props) => {
   } else {
     return (
       <div className={`${styles.movie_card} ${styles.mobile}`}>
-        <DefaultCard {...props} />;
+        <DefaultCard {...props} />
       </div>
     );
   }

@@ -14,7 +14,7 @@ The application contains two main components located in `src/pages` directory:
 
 The rest of components are located in the `src/components` movies.
 
-I use the React ContextAPI to manage the application's global state. The ContextAPI implementation files are located in `src/context` directory.
+I used the React ContextAPI to manage the application's global state. The ContextAPI implementation files are located in `src/context` directory.
 
 The OMDB API calls are handling by the custom React Hooks and helper functions located in `src/api` and `src/hooks` directories.
 

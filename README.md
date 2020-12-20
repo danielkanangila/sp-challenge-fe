@@ -1,6 +1,6 @@
 # UX Developer Intern & Web Developer Intern Challenge - Summer 2021
 
- **Challenge Description**
+ **Challenge Description:"**
  [https://docs.google.com/document/d/1AZO0BZwn1Aogj4f3PDNe1mhq8pKsXZxtrG--EIbP_-w/edit#](https://docs.google.com/document/d/1AZO0BZwn1Aogj4f3PDNe1mhq8pKsXZxtrG--EIbP_-w/edit#)
 
 ## Implementation

@@ -17,10 +17,11 @@
     "styled-components": "^5.2.1",
  ```
 
- ### Demo
+ ## Demo
 
  **Live**: [https://the-shoppies.herokuapp.com/](https://the-shoppies.herokuapp.com/)
 
 **On YouTube**:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/q2UE8eo7qbM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[![The Shoppies demo video](https://yt-embed.herokuapp.com/embed?v=q2UE8eo7qbM)](http://www.youtube.com/watch?v=q2UE8eo7qbM "The Shoppies")
  

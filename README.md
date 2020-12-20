@@ -9,7 +9,7 @@ The application is a single page application (SPA) implemented with React and HT
 The `src` directory contain all `JavaScript` files, the `public` directory contains the default `index.html` and other assets.
 
 The application contains two main components located in `src/pages` directory:
-* `Home` component: render the home page. Contain the `SearchBar`, `SearchResults`, and `Nominations` that respectively handle the query input, show the search result, and list the nominated movies.
+* `Home` component: render the home page. Contain the `SearchBar`, `SearchResults`, and `Nominations` that respectively handle the query input, show the search results, and list the nominated movies.
 * `Movie` component: show the details of one movie.
 
 The rest of components are located in the `src/components` movies.

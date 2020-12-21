@@ -5,14 +5,14 @@
 
 ## Implementation
 
-The application is a single page application (SPA) implemented with React and HTML/CSS.
+The application is a single page application (SPA) implemented in React and HTML/CSS.
 The `src` directory contain all `JavaScript` files, the `public` directory contains the default `index.html` and other assets.
 
 The application contains two main components located in `src/pages` directory:
-* `Home` component: render the home page. Contain the `SearchBar`, `SearchResults`, and `Nominations` that respectively handle the query input, show the search results, and list the nominated movies.
+* `Home` component: render the home page. Contains the `SearchBar`, `SearchResults`, and `Nominations` that respectively handle the query input, show the search results, and list the nominated movies.
 * `Movie` component: show the details of one movie.
 
-The rest of components are located in the `src/components` movies.
+The rest of components are located in the `src/components`.
 
 I used the React ContextAPI to manage the application's global state. The ContextAPI implementation files are located in `src/context` directory.
 
@@ -37,7 +37,7 @@ The OMDB API calls are handling by the custom React Hooks and helper functions l
 [![The Shoppies demo video](https://yt-embed.herokuapp.com/embed?v=q2UE8eo7qbM)](http://www.youtube.com/watch?v=q2UE8eo7qbM "The Shoppies")
  
 ## Run in Local
-**Note:** make sure you have the latest stable version of `Node.js` and `NPM` installed in your local machine.
+**Note:** make sure you have the latest stable version of [Node.js](https://nodejs.org/en/) and [NPM](https://nodejs.org/en/) installed in your local machine.
 
 1. Clone the repository
 ```

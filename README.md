@@ -34,7 +34,7 @@ The OMDB API calls are handling by the custom React Hooks and helper functions l
 
 **On YouTube**:
 
-[![The Shoppies demo video](https://yt-embed.herokuapp.com/embed?v=q2UE8eo7qbM)](http://www.youtube.com/watch?v=q2UE8eo7qbM "The Shoppies")
+[![The Shoppies demo video](https://drive.google.com/uc?export=view&id=1iK4CGQI-4UsBhvlA9_458do6_n1WvTxc)](https://youtu.be/q2UE8eo7qbM)
  
 ## Run in Local
 **Note:** make sure you have the latest stable version of [Node.js](https://nodejs.org/en/) and [NPM](https://nodejs.org/en/) installed in your local machine.
